@@ -6,19 +6,24 @@
 		@param numToReplace		The number of items to remove from the array
 		@param ...						Items to insert
 		@returns							A new array
-*/
+*/ //splice(a, 2, 2);
 var splice = function(arr, start, numToReplace, replace) {
 	var spliceArr = arr.slice(0)
 	var replacementArgs = arguments
 
 	if (replace == undefined) {
-		spliceArr.splice(start, numToReplace)
+		var newArr = spliceArr.slice(0, start)
+		var newArrTwo = spliceArr.slice((start+numToReplace), arr.length)
+		spliceArr = newArr.concat(newArrTwo)
+		// console.log(spliceArr)
 		return spliceArr;
 	}
 
 	else if (arguments.length > 4) {
-		spliceArr.splice(start, numToReplace)
-		
+		 newArr = spliceArr.slice(0, start)
+		 newArrTwo = spliceArr.slice((start+numToReplace), arr.length)
+		 spliceArr = newArr.concat(newArrTwo)
+
 			for (i=3; i<arguments.length; i++){
 				spliceArr = spliceArr.concat(arguments[i])
 			}
@@ -26,12 +31,13 @@ var splice = function(arr, start, numToReplace, replace) {
 	}
 
 	else{
-		spliceArr.splice(start, numToReplace, replace)
+		 newArr = spliceArr.slice(0, start)
+		 newArrTwo = spliceArr.slice((start+numToReplace), arr.length)
+		 midArray = [replace]
+		spliceArr = newArr.concat(midArray).concat(newArrTwo)
 		return spliceArr;
 	}
 };
-
-
 
 
 
