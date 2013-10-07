@@ -8,9 +8,8 @@
 		@returns							A new array
 */ //splice(a, 2, 2);
 var splice = function(arr, start, numToReplace, replace) {
-	var spliceArr = []
-	var replacementArgs = arguments
-
+	var spliceArr = arr.slice(0)
+	
 	if (replace == undefined) {
 		var newArr = spliceArr.slice(0, start)
 		var newArrTwo = spliceArr.slice((start+numToReplace), arr.length)
