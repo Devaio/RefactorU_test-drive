@@ -40,7 +40,7 @@ var splice = function(arr, start, numToReplace, replace) {
 
 /* Splice in one line */
 var splice = function(arr, start, numToReplace){
-	return [].concat( arr.slice(0,start), Array.prototype.slice.apply(arguments, 3) ,arr.slice(start+numToReplace) )
+	return [].concat( arr.slice(0,start), Array.prototype.slice.apply(arguments, [3]) ,arr.slice(start+numToReplace) )
 }
 
 
