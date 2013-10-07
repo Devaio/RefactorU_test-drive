@@ -9,7 +9,7 @@
 */ //splice(a, 2, 2);
 var splice = function(arr, start, numToReplace, replace) {
 	var spliceArr = arr.slice(0)
-	
+
 	if (replace == undefined) {
 		var newArr = spliceArr.slice(0, start)
 		var newArrTwo = spliceArr.slice((start+numToReplace), arr.length)
@@ -38,7 +38,10 @@ var splice = function(arr, start, numToReplace, replace) {
 	}
 };
 
-
+/* Splice in one line */
+var splice = function(arr, start, numToReplace){
+	return [].concat( arr.slice(0,start), Array.prototype.slice.apply(arguments, 3) ,arr.slice(start+numToReplace) )
+}
 
 
 // The Smallest Unit Testing Library
